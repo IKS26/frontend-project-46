@@ -1,7 +1,7 @@
 ### Maintainability badge:
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/eed96e1f7efbf8c9cb5d/maintainability)](https://codeclimate.com/github/IKS26/frontend-project-46/maintainability)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/28949565428f6e0206f2/maintainability)](https://codeclimate.com/github/IKS26/frontend-project-46/maintainability)
 
 ### Hexlet tests and linter status:
+
 [![Actions Status](https://github.com/IKS26/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IKS26/frontend-project-46/actions)
