@@ -5,3 +5,11 @@
 ### Hexlet tests and linter status:
 
 [![Actions Status](https://github.com/IKS26/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IKS26/frontend-project-46/actions)
+
+## "Difference Calculator" application
+
+This application compares two configuration files and shows a difference.
+
+## Asciinema-link for "Comparing of two 'json' files":
+
+[![asciicast](https://https://asciinema.org/a/vkMV8okwiUKogNjCx6bzmycIg.svg)](https://asciinema.org/a/vkMV8okwiUKogNjCx6bzmycIg)
