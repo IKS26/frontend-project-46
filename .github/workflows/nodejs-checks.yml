@@ -20,7 +20,7 @@ jobs:
     strategy:
       # Node versions list
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x]
 
     steps:
       # Check out the repository under the GitHub workspace
