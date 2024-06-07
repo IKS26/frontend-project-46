@@ -8,12 +8,11 @@
     "gendiff": "./bin/gendiff.js"
   },
   "scripts": {
-    "install": "npm ci",
     "gendiff": "node ./bin/gendiff.js",
     "lint": "npx eslint .",
     "lint-fix": "npx eslint . --fix",
 	 "test": "jest",
-    "test-watch": "jest --watch",
+	 "test-watch": "jest --watch",
 	 "test-coverage": "jest --coverage",
 	 "publish": "npm publish --dry-run"
   },

@@ -1,7 +1,7 @@
 .PHONY: install gendiff lint lint-fix test test-watch test-coverage publish
 
 install:
-	npm ci
+	npm install
 
 gendiff:
 	./bin/gendiff.js $(file1) $(file2)
