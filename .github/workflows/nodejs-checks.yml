@@ -1,0 +1,54 @@
+# Name of the workflow
+name: Node.js CI
+
+# Trigger the workflow on push or pull request to the main branch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Set the environment variable CI to true
+env:
+  CI: true
+
+jobs:
+  build:
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
+
+    strategy:
+      # Node versions list
+      matrix:
+        node-version: [14.x, 16.x, 18.x, 20.x]
+
+    steps:
+      # Check out the repository under the GitHub workspace
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
+
+      # Set up Node.js environment
+      # https://github.com/actions/setup-node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # Install dependencies using Makefile
+      - run: make install
+
+      # Run linter using Makefile
+      - run: make lint
+
+      # Run tests using Makefile
+      - run: make test
+
+      # Publish code coverage to Code Climate
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true

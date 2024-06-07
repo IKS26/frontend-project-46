@@ -1,10 +1,12 @@
-### Maintainability badge:
+### Code Climate Badges:
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/28949565428f6e0206f2/maintainability)](https://codeclimate.com/github/IKS26/frontend-project-46/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/28949565428f6e0206f2/test_coverage)](https://codeclimate.com/github/IKS26/frontend-project-46/test_coverage)
 
-### Hexlet tests and linter status:
+### CI status:
 
 [![Actions Status](https://github.com/IKS26/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IKS26/frontend-project-46/actions)
+[![Node.js CI](https://github.com/IKS26/frontend-project-46/actions/workflows/nodejs-checks.yml/badge.svg)](https://github.com/IKS26/frontend-project-46/actions/workflows/nodejs-checks.yml)
 
 ## "Difference Calculator" application
 
