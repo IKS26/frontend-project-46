@@ -19,3 +19,7 @@ This application compares two configuration files and shows a difference.
 ## Asciinema-link for "Comparing of two 'yaml' files":
 
 [![asciicast](https://https://asciinema.org/a/cjeu3u7ejjyIn5i6rKtn2Mi2c.svg)](https://asciinema.org/a/cjeu3u7ejjyIn5i6rKtn2Mi2c)
+
+## Asciinema-link for "Recursive comparison of two 'json' / 'yaml' files":
+
+[![asciicast](https://https://asciinema.org/a/SntNGwhCCzbbibc1m6KPqUwmu.svg)](https://asciinema.org/a/SntNGwhCCzbbibc1m6KPqUwmu)
