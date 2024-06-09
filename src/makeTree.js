@@ -1,5 +1,22 @@
 import _ from 'lodash';
 
+const nodeHandlers = {
+  added: (key, value) => ({ key, type: 'added', value }),
+  deleted: (key, value) => ({ key, type: 'deleted', value }),
+  nested: (key, value1, value2, func) => ({
+    key,
+    type: 'nested',
+    children: func(value1, value2),
+  }),
+  modified: (key, value1, value2) => ({
+    key,
+    type: 'modified',
+    oldValue: value1,
+    newValue: value2,
+  }),
+  unmodified: (key, value) => ({ key, type: 'unmodified', value }),
+};
+
 const makeTree = (data1, data2) => {
   const keys1 = _.keys(data1);
   const keys2 = _.keys(data2);
@@ -13,27 +30,18 @@ const makeTree = (data1, data2) => {
     const hasKey2 = _.has(data2, key);
 
     if (!hasKey1) {
-      return { key, type: 'added', value: value2 };
+      return nodeHandlers.added(key, value2);
     }
     if (!hasKey2) {
-      return { key, type: 'deleted', value: value1 };
+      return nodeHandlers.deleted(key, value1);
     }
     if (_.isObject(value1) && _.isObject(value2)) {
-      return {
-        key,
-        type: 'nested',
-        children: makeTree(value1, value2),
-      };
+      return nodeHandlers.nested(key, value1, value2, makeTree);
     }
     if (!_.isEqual(value2, value1)) {
-      return {
-        key,
-        type: 'modified',
-        oldValue: value1,
-        newValue: value2,
-      };
+      return nodeHandlers.modified(key, value1, value2);
     }
-    return { key, type: 'unmodified', value: value2 };
+    return nodeHandlers.unmodified(key, value2);
   });
 };
 
