@@ -20,11 +20,11 @@ const handleAdded = (propertyPath, value) =>
 const handleModified = (propertyPath, oldValue, newValue) =>
   `Property '${propertyPath}' was updated. From ${stringifyValue(oldValue)} to ${stringifyValue(newValue)}`;
 const handleNested = (iterate, children, propertyPath) =>
-  iterate(children, propertyPath).join('\n');
+  iterate(children, propertyPath);
 
 const plain = (tree) => {
-  const iterate = (nodes, parentPath = '') =>
-    nodes
+  const iterate = (nodes, parentPath = '') => {
+    const result = nodes
       .map((node) => {
         const { key, value, type, oldValue, newValue, children } = node;
         const propertyPath = parentPath ? `${parentPath}.${key}` : key;
@@ -44,7 +44,10 @@ const plain = (tree) => {
       })
       .filter(Boolean);
 
-  return iterate(tree).join('\n');
+    return result.join('\n');
+  };
+
+  return iterate(tree);
 };
 
 export default plain;
