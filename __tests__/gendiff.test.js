@@ -12,7 +12,7 @@ const readFixture = (filename) =>
   readFileSync(getFixturePath(filename), 'utf-8').trim();
 
 const fileFormats = ['json', 'yaml', 'yml'];
-const outputFormats = ['stylish', 'plain'];
+const outputFormats = ['stylish', 'plain', 'json'];
 
 describe('genDiff testing', () => {
   test.each(fileFormats)('genDiff testing with two %p-files', (format) => {
