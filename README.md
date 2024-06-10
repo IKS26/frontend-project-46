@@ -12,14 +12,18 @@
 
 This application compares two configuration files and shows a difference.
 
-## Asciinema-link for "Comparing of two 'json' files":
+## Asciinema-link for "Comparison of two 'json' files":
 
 [![asciicast](https://https://asciinema.org/a/vkMV8okwiUKogNjCx6bzmycIg.svg)](https://asciinema.org/a/vkMV8okwiUKogNjCx6bzmycIg)
 
-## Asciinema-link for "Comparing of two 'yaml' files":
+## Asciinema-link for "Comparison of two 'yaml' files":
 
 [![asciicast](https://https://asciinema.org/a/cjeu3u7ejjyIn5i6rKtn2Mi2c.svg)](https://asciinema.org/a/cjeu3u7ejjyIn5i6rKtn2Mi2c)
 
-## Asciinema-link for "Recursive comparison of two 'json' / 'yaml' files":
+## Asciinema-link for "Recursive comparison of files in 'stylish' format":
 
 [![asciicast](https://https://asciinema.org/a/SntNGwhCCzbbibc1m6KPqUwmu.svg)](https://asciinema.org/a/SntNGwhCCzbbibc1m6KPqUwmu)
+
+## Asciinema-link for "Recursive comparison of files in 'plain' format":
+
+[![asciicast](https://https://asciinema.org/a/ZTxu47rnl4nnOcDnFsqNVsm3d.svg)](https://asciinema.org/a/ZTxu47rnl4nnOcDnFsqNVsm3d)
