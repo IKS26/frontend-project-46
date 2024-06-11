@@ -16,8 +16,16 @@ const stringify = (value, nestingLevel) => {
   return `{\n${lines.join('\n')}\n${bracketIndent}}`;
 };
 
+function iterate(nodes, currentNestingLevel) {
+  const indent = getIndent(currentNestingLevel).slice(2);
+  return nodes.map((node) => formatNode(node, indent, currentNestingLevel));
+}
+
 function formatNode(node, indent, currentNestingLevel) {
-  const { key, value, type, oldValue, newValue, children } = node;
+	const {
+		key, value, type, oldValue, newValue, children,
+	} = node;
+
   switch (type) {
     case 'deleted':
       return `${indent}- ${key}: ${stringify(value, currentNestingLevel + 1)}`;
@@ -35,10 +43,6 @@ function formatNode(node, indent, currentNestingLevel) {
     default:
       throw new Error(`Unknown type: ${type}`);
   }
-}
-function iterate(nodes, currentNestingLevel) {
-  const indent = getIndent(currentNestingLevel).slice(2);
-  return nodes.map((node) => formatNode(node, indent, currentNestingLevel));
 }
 
 const stylish = (diffTree, nestingLevel = 1) => {

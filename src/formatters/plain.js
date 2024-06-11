@@ -18,28 +18,30 @@ const handleAdded = (propertyPath, value) => `Property '${propertyPath}' was add
 const handleModified = (propertyPath, oldValue, newValue) => `Property '${propertyPath}' was updated. From ${stringifyValue(oldValue)} to ${stringifyValue(newValue)}`;
 const handleNested = (iterate, children, propertyPath) => iterate(children, propertyPath);
 
+const processNode = (node, parentPath, iterate) => {
+	const {
+		key, value, type, oldValue, newValue, children,
+   } = node;
+	const propertyPath = parentPath ? `${parentPath}.${key}` : key;
+
+  switch (type) {
+    case 'deleted':
+      return handleDeleted(propertyPath);
+    case 'added':
+      return handleAdded(propertyPath, value);
+    case 'modified':
+      return handleModified(propertyPath, oldValue, newValue);
+    case 'nested':
+      return handleNested(iterate, children, propertyPath);
+    default:
+      return null;
+  }
+};
+
 const plain = (tree) => {
   const iterate = (nodes, parentPath = '') => {
     const result = nodes
-      .map((node) => {
-        const {
-          key, value, type, oldValue, newValue, children,
-        } = node;
-        const propertyPath = parentPath ? `${parentPath}.${key}` : key;
-
-        switch (type) {
-          case 'deleted':
-            return handleDeleted(propertyPath);
-          case 'added':
-            return handleAdded(propertyPath, value);
-          case 'modified':
-            return handleModified(propertyPath, oldValue, newValue);
-          case 'nested':
-            return handleNested(iterate, children, propertyPath);
-          default:
-            return null;
-        }
-      })
+      .map((node) => processNode(node, parentPath, iterate))
       .filter(Boolean);
 
     return result.join('\n');
