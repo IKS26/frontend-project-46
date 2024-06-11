@@ -27,3 +27,7 @@ rules:
         ImportDeclaration: 'never',
         ExportDeclaration: { multiline: true, minProperties: 6 },
       }
+  indent: ["error", 2]
+  no-tabs: "error"
+  no-use-before-define: ["error", { "functions": false, "variables": false }]
+  eol-last: ["error", "always"]
