@@ -19,10 +19,10 @@ const handleModified = (propertyPath, oldValue, newValue) => `Property '${proper
 const handleNested = (iterate, children, propertyPath) => iterate(children, propertyPath);
 
 const processNode = (node, parentPath, iterate) => {
-	const {
-		key, value, type, oldValue, newValue, children,
-   } = node;
-	const propertyPath = parentPath ? `${parentPath}.${key}` : key;
+  const {
+    key, value, type, oldValue, newValue, children,
+  } = node;
+  const propertyPath = parentPath ? `${parentPath}.${key}` : key;
 
   switch (type) {
     case 'deleted':

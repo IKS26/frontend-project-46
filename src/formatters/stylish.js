@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import _ from 'lodash';
 
 const quantityOfSpacesForEachLevel = 4;
@@ -16,15 +17,10 @@ const stringify = (value, nestingLevel) => {
   return `{\n${lines.join('\n')}\n${bracketIndent}}`;
 };
 
-function iterate(nodes, currentNestingLevel) {
-  const indent = getIndent(currentNestingLevel).slice(2);
-  return nodes.map((node) => formatNode(node, indent, currentNestingLevel));
-}
-
-function formatNode(node, indent, currentNestingLevel) {
-	const {
-		key, value, type, oldValue, newValue, children,
-	} = node;
+const formatNode = (node, indent, currentNestingLevel) => {
+  const {
+    key, value, type, oldValue, newValue, children,
+  } = node;
 
   switch (type) {
     case 'deleted':
@@ -43,7 +39,12 @@ function formatNode(node, indent, currentNestingLevel) {
     default:
       throw new Error(`Unknown type: ${type}`);
   }
-}
+};
+
+const iterate = (nodes, currentNestingLevel) => {
+  const indent = getIndent(currentNestingLevel).slice(2);
+  return nodes.map((node) => formatNode(node, indent, currentNestingLevel));
+};
 
 const stylish = (diffTree, nestingLevel = 1) => {
   const lines = iterate(diffTree, nestingLevel);
