@@ -12,8 +12,8 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        browser: true,
-        node: true,
+        browser: 'readonly',
+        node: 'readonly',
         process: 'readonly',
         console: 'writable',
       },
@@ -22,8 +22,8 @@ export default [
       prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': 'error',
       'constructor-super': 'off',
+      'implicit-arrow-linebreak': ['error', 'beside'],
     },
   },
 ];

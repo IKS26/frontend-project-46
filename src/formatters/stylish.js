@@ -1,8 +1,7 @@
 import _ from 'lodash';
 
 const quantityOfSpacesForEachLevel = 4;
-const getIndent = (nestingLevel) =>
-  ' '.repeat(nestingLevel * quantityOfSpacesForEachLevel);
+const getIndent = (nestingLevel) => ' '.repeat(nestingLevel * quantityOfSpacesForEachLevel);
 
 const stringify = (value, nestingLevel) => {
   if (!_.isObject(value)) {
