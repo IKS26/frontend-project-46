@@ -31,15 +31,14 @@ const makeTree = (data1, data2) => {
 
     if (!hasKey1) {
       return nodeHandlers.added(key, value2);
-    } else if (!hasKey2) {
+    } if (!hasKey2) {
       return nodeHandlers.deleted(key, value1);
-    } else if (_.isObject(value1) && _.isObject(value2)) {
+    } if (_.isObject(value1) && _.isObject(value2)) {
       return nodeHandlers.nested(key, value1, value2, makeTree);
-    } else if (!_.isEqual(value1, value2)) {
+    } if (!_.isEqual(value1, value2)) {
       return nodeHandlers.modified(key, value1, value2);
-    } else {
-      return nodeHandlers.unmodified(key, value1);
     }
+    return nodeHandlers.unmodified(key, value1);
   });
 };
 

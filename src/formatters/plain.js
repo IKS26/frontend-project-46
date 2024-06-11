@@ -22,7 +22,9 @@ const plain = (tree) => {
   const iterate = (nodes, parentPath = '') => {
     const result = nodes
       .map((node) => {
-        const { key, value, type, oldValue, newValue, children } = node;
+        const {
+          key, value, type, oldValue, newValue, children,
+        } = node;
         const propertyPath = parentPath ? `${parentPath}.${key}` : key;
 
         switch (type) {
